@@ -7,9 +7,9 @@ import Container from "@mui/material/Container";
 import AdbIcon from "@mui/icons-material/Adb";
 import LoginIcon from "@mui/icons-material/Login";
 
-import { link } from "@/components/atom";
+import { link, toTitle } from "@/components/atom";
 
-const pages = ["Dashboard", "Profile"];
+const pages = ["dashboard", "profile"];
 
 function Header() {
   return (
@@ -48,7 +48,10 @@ function Header() {
           <div style={{ display: "flex" }}>
             {pages.map((page, index) => (
               <div key={index} style={{ padding: "5px" }}>
-                <Typography textAlign="center">{page}</Typography>
+                {link(
+                  page,
+                  <Typography textAlign="center">{toTitle(page)}</Typography>
+                )}
               </div>
             ))}
           </div>
